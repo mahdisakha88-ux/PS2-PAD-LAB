@@ -1,3 +1,4 @@
+
 name: Build PS2 PAD LAB
 
 on:
@@ -18,11 +19,11 @@ jobs:
 
       - name: Build
         run: |
-          cd /src
           make
 
       - name: Upload ELF
         uses: actions/upload-artifact@v4
         with:
           name: PS2-PAD-LAB
-          path: PS2_PAD_LAB.elf
+          path: PS2_PAD_L
+          AB.elf
