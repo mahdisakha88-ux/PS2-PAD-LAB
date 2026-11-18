@@ -3,13 +3,13 @@ name: Build PS2 PAD LAB
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     container:
       image: ghcr.io/ps2dev/ps2dev:latest
 
@@ -18,12 +18,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build
-        run: |
-          make
+        run: make
 
       - name: Upload ELF
         uses: actions/upload-artifact@v4
         with:
           name: PS2-PAD-LAB
-          path: PS2_PAD_L
-          AB.elf
+          path: PS2_PAD_LAB.elf
+
