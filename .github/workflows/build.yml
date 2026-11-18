@@ -8,18 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/ps2dev/ps2sdk:latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build PS2 ELF
-        run: |
-          docker run --rm \
-            -v "$GITHUB_WORKSPACE:/src" \
-            -w /src \
-            ghcr.io/ps2dev/ps2sdk:latest \
-            make
+      - name: Build
+        run: make
 
       - name: Upload ELF
         uses: actions/upload-artifact@v4
